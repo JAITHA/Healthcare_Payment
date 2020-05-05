@@ -13,7 +13,7 @@ $(document).on("click", "#btnSave", function(event) {
 	$("#alertError").hide();
 
 	// Form validation-------------------
-	var status = validateItemForm();
+	var status = validatePaymentForm();
 	if (status != true) {
 		$("#alertError").text(status);
 		$("#alertError").show();
@@ -28,13 +28,13 @@ $(document).on("click", "#btnSave", function(event) {
 		data : $("#formPayment").serialize(),
 		dataType : "text",
 		complete : function(response, status) {
-			onItemSaveComplete(response.responseText, status);
+			onPaymentSaveComplete(response.responseText, status);
 		}
 	});
 });
 
 //UPDATE==========================================
-function onItemSaveComplete(response, status) {
+function onPaymentSaveComplete(response, status) {
 	if (status == "success") {
 		var resultSet = JSON.parse(response);
 		if (resultSet.status.trim() == "success") {
@@ -63,13 +63,13 @@ $(document).on("click", ".btnRemove", function(event) {
 		data : "P_PaymentID=" + $(this).data("paymentid"),
 		dataType : "text",
 		complete : function(response, status) {
-			onItemDeleteComplete(response.responseText, status);
+			onPaymentDeleteComplete(response.responseText, status);
 		}
 	});
 });
 
 //DELETE==========================================
-function onItemDeleteComplete(response, status) {
+function onPaymentDeleteComplete(response, status) {
 	if (status == "success") {
 		var resultSet = JSON.parse(response);
 		if (resultSet.status.trim() == "success") {
@@ -105,7 +105,7 @@ $(document).on(
 		});
 
 // CLIENTMODEL=========================================================================
-function validateItemForm() {
+function validatePaymentForm() {
 	// AMOUNT
 	if ($("#P_Amount").val().trim() == "") {
 		return "Insert Payment Amount.";
