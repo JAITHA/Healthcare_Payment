@@ -126,14 +126,15 @@ function validatePaymentForm() {
 	if ($("#P_CVC").val().trim() == "") {
 		return "Insert CVC.";
 	}
+	//Expiring Date
 	if ($("#P_ExpiringDate").val().trim() == "") {
 		return "Insert Expiring Date.";
 	}
-	
+	//Card Number
 	if ($("#P_CardNumber").val().trim() == "") {
 		return "Insert Card Number.";
 	}
-	
+	//AppointmentID
 	if ($("#P_AppointmentID").val().trim() == "") {
 		return "Insert AppointmentID.";
 	}
