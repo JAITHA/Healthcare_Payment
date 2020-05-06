@@ -178,7 +178,7 @@ public class Payment extends HttpServlet{
 		 
 		 preparedStmt.execute();
 		 con.close();
-		 //output = "Deleted Payment successfully";
+		 
 		 String newPayment = readPayments();
 		 output = "{\"status\":\"success\", \"data\": \"" +newPayment + "\"}";
 		 }
