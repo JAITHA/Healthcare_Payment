@@ -148,7 +148,7 @@ public class Payment extends HttpServlet{
 		 // execute the statement
 		 preparedStmt.execute();
 		 con.close();
-		 //output = "Updated Payment successfully";
+		 
 		 String newPayment = readPayments();
 		 output = "{\"status\":\"success\", \"data\": \"" +newPayment + "\"}";
 		 }
@@ -185,7 +185,7 @@ public class Payment extends HttpServlet{
 		 catch (Exception e)
 		 {
 		  output = "{\"status\":\"error\", \"data\":\"Error while deleting the Payment.\"}";
-		 //output = "Error while deleting the Payment Details.";
+		 
 		 System.err.println(e.getMessage());
 		 }
 		 return output;
